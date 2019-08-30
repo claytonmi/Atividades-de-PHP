@@ -1,12 +1,12 @@
 <?php
 
-
+// class whatsapp
 Class Whatsapp{
     private $contatinho;
     private $mensagem;
-
+    // contrutor da class
     function __construct(Contatinho $contatinho,Mensagem  $mensagem){
-        $this->contatinho = array();
+        $this->contatinho = ;
         $this->mensagem = $mensagem;        
     }
 
@@ -20,7 +20,7 @@ Class Whatsapp{
 
     public function listarContatos(){
         foreach ($this->contatinho as $cont) {
-            echo $cont->getNome()."<br>";
+            echo $cont->getNome()."<br>";            
         }
     }
 
@@ -35,7 +35,7 @@ class Contatinho{
     private $nome;
     private $celular;
 
-    function __construct(string $nome, int $celular){
+    function __construct(string $nome, string $celular){
         $this->nome = $nome;
         $this->celular= $celular;
     }
@@ -51,28 +51,27 @@ abstract class Mensagem{
     private $conteudo;
 
     function __construct(Contatinho $destinatario, string $horaEnvio, string $conteudo){
-        $this->$destinatario = $destinatario;
-        $this->$horaEnvio = $horaEnvio;
-        $this->$conteudo = $conteudo;
+        $this->destinatario = $destinatario;
+        $this->horaEnvio = $horaEnvio;
+        $this->conteudo = $conteudo;
     }
 
-    public function toString(){
-
-    }
+    public abstract function  toString();
 }
 
 class MsgTexto extends Mensagem{
     private $numChar;
 
-    function __construct(int $numChar, Contatinho $destinatario, string $horaEnvio, string $conteudo){
-        $this->numChar = $numChar;
-        parent::__construct($destinatario,  $horaEnvio,  $conteudo);
-    }
+    public function toString(){}
+        function __construct(int $numChar, Contatinho $destinatario, string $horaEnvio, string $conteudo){
+            $this->numChar = $numChar;
+            parent::__construct($destinatario,  $horaEnvio,  $conteudo);
+        }        
 }
 
 class MsgAudio extends Mensagem{
     private $duracao;
-
+    public function toString(){ }
     function __construct(int $nduracaoumChar, Contatinho $destinatario, string $horaEnvio, string $conteudo){
         $this->duracao = $duracao;
         parent::__construct($destinatario,  $horaEnvio,  $conteudo);
@@ -82,8 +81,21 @@ class MsgAudio extends Mensagem{
 class MsgFoto extends Mensagem{
     private $tamanho;
 
-    function __construct(int $tamanho, Contatinho $destinatario, string $horaEnvio, string $conteudo){
-        $this->tamanho = $tamanho;
-        parent::__construct($destinatario,  $horaEnvio,  $conteudo);
-    }
+    public function toString(){}
+ 
+  function __construct(int $tamanho, Contatinho $destinatario, string $horaEnvio, string $conteudo){
+    $this->tamanho = $tamanho;
+     parent::__construct($destinatario,  $horaEnvio,  $conteudo);
+   }  
 }
+
+
+$Contato = new Contatinho("teste","999999");
+$Contato2 = new Contatinho("teste2","9999656");
+
+$Mensage = new MsgTexto(1,$Contato,"12:00","nunca nem vi!");
+$Mensage2 = new MsgFoto(2,$Contato2,"12:00","nunca nem vi!");
+
+$whats = new Whatsapp($Contato,"teste");
+
+$whats->listarContatos();
