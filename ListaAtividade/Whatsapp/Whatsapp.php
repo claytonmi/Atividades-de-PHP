@@ -50,7 +50,7 @@ Class Whatsapp{
 
     public function listarMensagem(){
         foreach ($this->mensagem as $me) {
-            echo $me->getConteudo();
+            echo $me->getConteudo()."<br>";
         }
     }
 }
