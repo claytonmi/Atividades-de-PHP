@@ -7,11 +7,11 @@ require_once "MsgAudio.php";
 require_once "MsgFoto.php";
 
 
-$Contato = new Contatinho("qualquer bosta","999999");
-$Contato2 = new Contatinho("teste 2","9999656");
+$Contato = new Contatinho("Paulo","999999");
+$Contato2 = new Contatinho("Paula","9999656");
 
-$Mensage = new MsgTexto(1,$Contato,"12:00","nunca nem vi!");
-$Mensage2 = new MsgFoto(2,$Contato2,"12:00","nunca nem vi!");
+$Mensage = new MsgTexto(1,$Contato,"12:00","Mensagem um!");
+$Mensage2 = new MsgFoto(2,$Contato2,"12:00","Mensagem dois!");
 
 $whats = new Whatsapp($Contato, $Mensage);
 $whats->addContatinho($Contato2);

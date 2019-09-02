@@ -1,19 +1,22 @@
 <?php
-require_once "Urna.php";
-require_once "Voto.php";
+
 require_once "Candidato.php";
+require_once "Voto.php";
+require_once "Urna.php";
 
+$Canditado = new Candidato(17, "Jose Paulo", 17);
+$Canditado2 = new Candidato(13, "Paulinho", 13);
 
+$Voto = new Voto($Canditado);
+$Voto2 = new Voto($Canditado2);
 
-$Canditado = new Candidato("qualquer bosta","999999");
-$Canditado2 = new Contatinho("teste 2","9999656");
+$Urna = new Urna(1, 10, $Voto);
+$Urna->addVotos($Voto);
+$Urna->addVotos($Voto);
+$Urna->addVotos($Voto);
+$Urna->addVotos($Voto);
+$Urna->addVotos($Voto2);
+$Urna->addVotos($Voto2);
+$Urna->addVotos($Voto2);
 
-$Voto = new MsgTexto(1,$Contato,"12:00","nunca nem vi!");
-$Voto2 = new MsgFoto(2,$Contato2,"12:00","nunca nem vi!");
-
-$Urna = new Whatsapp($Contato, $Mensage);
-$Urna->addContatinho($Contato2);
-$Urna->addMensagem($Mensage2);
-
-$Urna->listarContatos();
-$Urna->listarMensagem();
+$Urna->relatorio();
