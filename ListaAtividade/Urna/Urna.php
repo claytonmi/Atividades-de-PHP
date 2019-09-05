@@ -12,10 +12,8 @@ Class Urna{
 	}
 
 	public function addVotos(Candidato $candidato){
-	    if ($voto == null){
-	    	$Voto = new Voto();
-	    }	
-            $this->votos[] = $candidato;
+	    $Voto = new Voto($candidato);	  	
+            $this->votos[] = $Voto;
         }
 
 
