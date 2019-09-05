@@ -5,13 +5,20 @@ Class Whatsapp{
     private $mensagem;
     
     // contrutor da class
-    function __construct(Contatinho $contatinho,Mensagem  $mensagem){
-        $this->contatinho[] = $contatinho;
-        $this->mensagem[] = $mensagem;
+    function __construct(){
+        $this->contatinho = array();
+        $this->mensagem = array();
     }
-
-    public function addMensagem(Mensagem $mensagem){
-        $this->mensagem[] = $mensagem;
+int $numChar, Contatinho $destinatario, string $horaEnvio, string $conteudo
+    public function addMensagem(int $tipo,int $info,Contatinho $contato, String $hora, String $conteudo){
+		if (tipo == 1 ){
+			$Mensage = new MsgTexto($info,$contato,$hora,$conteudo);
+		}else if (tipo == 2 ){
+			$Mensage = new MsgAudio($info,$contato,$hora,$conteudo);
+		}else if (tipo == 3 ){
+			$Mensage = new Msg Foto($info,$contato,$hora,$conteudo);
+		}
+		$this->mensagem[] = $Mensage;        
     }
 
     public function addContatinho(Contatinho $contatinho){
@@ -25,21 +32,9 @@ Class Whatsapp{
     }
 
 
-    public function setContatinho(Contatinho $contatinho)
-    {
-        $this->contatinho = $contatinho;
-    }
-
-
     public function getMensagem(): Mensagem
     {
         return $this->mensagem;
-    }
-
-
-    public function setMensagem(Mensagem $mensagem)
-    {
-        $this->mensagem = $mensagem;
     }
 
     public function listarContatos(){
