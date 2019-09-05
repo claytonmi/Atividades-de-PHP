@@ -4,25 +4,22 @@ Class Urna{
 		private $secao;
 		private $zona;
 		private $votos;
-
-
-    public function getVotos(): Voto
-    {
-        return $this->votos;
-    }
 		
-		function __construct(int $secao,int $zona, Voto $voto){
-				$this->secao = $secao;
-				$this->zona = $zona;
-				$this->votos[] = $voto;
-		}
+	function __construct(int $secao,int $zona){
+		$this->secao = $secao;
+		$this->zona = $zona;
+		$this->votos = array();
+	}
 
-		public function addVotos(Voto $voto){
-            $this->votos[] = $voto;
+	public function addVotos(Candidato $candidato){
+	    if ($voto == null){
+	    	$Voto = new Voto();
+	    }	
+            $this->votos[] = $candidato;
         }
 
 
-		public function relatorio(){
+	public function relatorio(){
             $aux = 17;
 			echo "Seção: ".$this->secao."<br/>";
 			echo "Zona: ".$this->zona."<br/>";
