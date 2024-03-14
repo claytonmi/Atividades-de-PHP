@@ -1,19 +1,39 @@
 <?php
+abstract class Mensagem {
+    private $id;
+    private $tipo;
+    private $contatinho;
+    private $hora;
+    private $conteudo;
 
-abstract class Mensagem{
-    protected $destinatario;
-    protected $horaEnvio;
-    protected $conteudo;
-
-    function __construct(Contatinho $destinatario, string $horaEnvio, string $conteudo){
-        $this->destinatario = $destinatario;
-        $this->horaEnvio = $horaEnvio;
+    public function __construct($id, $tipo, Contatinho $contatinho, $hora, $conteudo) {
+        $this->id = $id;
+        $this->tipo = $tipo;
+        $this->contatinho = $contatinho;
+        $this->hora = $hora;
         $this->conteudo = $conteudo;
     }
 
-    public function getConteudo(){
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getTipo() {
+        return $this->tipo;
+    }
+
+    public function getContatinho() {
+        return $this->contatinho;
+    }
+
+    public function getHora() {
+        return $this->hora;
+    }
+
+    public function getConteudo() {
         return $this->conteudo;
     }
 
-    public abstract function  toString();
+    // Método abstrato para ser implementado pelas subclasses
+    abstract public function enviar();
 }

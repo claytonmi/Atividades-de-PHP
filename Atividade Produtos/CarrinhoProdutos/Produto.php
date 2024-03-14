@@ -1,18 +1,18 @@
 <?php
-    class Produto{
-        private $nome;
-        private $valor;
+class Produto {
+    private $nome;
+    private $preco;
 
-        function __construct(string $nome,float $valor){
-            $this->nome = $nome;
-            $this->valor = $valor;
-        }
-
-        public function getNome(){
-            return $this->nome;
-        }
-
-        public function getValor(){
-            return $this->valor;
-        }
+    public function __construct($nome, $preco) {
+        $this->nome = $nome;
+        $this->preco = $preco;
     }
+
+    public function getNome() {
+        return $this->nome;
+    }
+
+    public function getPreco() {
+        return $this->preco;
+    }
+}

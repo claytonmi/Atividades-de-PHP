@@ -1,12 +1,19 @@
 <?php
 
-class MsgAudio extends Mensagem{
+class MsgAudio extends Mensagem {
     private $duracao;
-    
-    public function toString(){ }
 
-    function __construct(int $nduracaoumChar, Contatinho $destinatario, string $horaEnvio, string $conteudo){
+    public function __construct($id, $tipo, Contatinho $contatinho, $hora, $conteudo, $duracao) {
+        parent::__construct($id, $tipo, $contatinho, $hora, $conteudo);
         $this->duracao = $duracao;
-        parent::__construct($destinatario,  $horaEnvio,  $conteudo);
+    }
+
+    public function getDuracao() {
+        return $this->duracao;
+    }
+
+    public function enviar() {
+        // Implementação do envio de mensagem de áudio
+        echo "Enviando mensagem de áudio para " . $this->getContatinho()->getNome() . "<br>";
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-class MsgTexto extends Mensagem{
-    private $numChar;
+class MsgTexto extends Mensagem {
+    public function __construct($id, $tipo, Contatinho $contatinho, $hora, $conteudo) {
+        parent::__construct($id, $tipo, $contatinho, $hora, $conteudo);
+    }
 
-    public function toString(){}
-
-        function __construct(int $numChar, Contatinho $destinatario, string $horaEnvio, string $conteudo){
-            $this->numChar = $numChar;
-            parent::__construct($destinatario,  $horaEnvio,  $conteudo);
-        }        
+    public function enviar() {
+        // Implementação do envio de mensagem de texto
+        echo "Enviando mensagem de texto para " . $this->getContatinho()->getNome() . "<br>";
+    }
 }

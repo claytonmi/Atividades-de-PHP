@@ -1,15 +1,19 @@
 <?php
 
-class Contatinho{
+class Contatinho {
     private $nome;
-    private $celular;
+    private $numero;
 
-    function __construct(string $nome, string $celular){
+    public function __construct($nome, $numero) {
         $this->nome = $nome;
-        $this->celular= $celular;
+        $this->numero = $numero;
     }
 
-    public function getNome(){
+    public function getNome() {
         return $this->nome;
-    }   
+    }
+
+    public function getNumero() {
+        return $this->numero;
+    }
 }

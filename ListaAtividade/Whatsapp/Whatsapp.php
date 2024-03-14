@@ -1,51 +1,41 @@
 <?php
+require_once "Contatinho.php";
+class Whatsapp {
+    private $contatinhos = [];
+    private $mensagens = [];
 
-Class Whatsapp{
-    private $contatinho;
-    private $mensagem;
-    
-    // contrutor da class
-    function __construct(){
-        $this->contatinho = array();
-        $this->mensagem = array();
-    }
-int $numChar, Contatinho $destinatario, string $horaEnvio, string $conteudo
-    public function addMensagem(int $tipo,int $info,Contatinho $contato, String $hora, String $conteudo){
-		if (tipo == 1 ){
-			$Mensage = new MsgTexto($info,$contato,$hora,$conteudo);
-		}else if (tipo == 2 ){
-			$Mensage = new MsgAudio($info,$contato,$hora,$conteudo);
-		}else if (tipo == 3 ){
-			$Mensage = new Msg Foto($info,$contato,$hora,$conteudo);
-		}
-		$this->mensagem[] = $Mensage;        
+    public function addContatinho(Contatinho $contatinho) {
+        $this->contatinhos[] = $contatinho;
     }
 
-    public function addContatinho(Contatinho $contatinho){
-        $this->contatinho[] = $contatinho;
+    public function addMensagem($id, $tipo, Contatinho $contatinho, $hora, $conteudo) {
+        switch ($tipo) {
+            case 1:
+                $mensagem = new MsgTexto($id, $tipo, $contatinho, $hora, $conteudo);
+                break;
+            case 2:
+                $mensagem = new MsgAudio($id, $tipo, $contatinho, $hora, $conteudo);
+                break;
+            case 3:
+                $mensagem = new MsgFoto($id, $tipo, $contatinho, $hora, $conteudo);
+                break;
+            default:
+                // Tratamento para tipos de mensagem desconhecidos
+                return;
+        }
+
+        $this->mensagens[] = $mensagem;
     }
 
-
-    public function getContatinho(): Contatinho
-    {
-        return $this->contatinho;
-    }
-
-
-    public function getMensagem(): Mensagem
-    {
-        return $this->mensagem;
-    }
-
-    public function listarContatos(){
-        foreach ($this->contatinho as $cont) {
-            echo $cont->getNome()."<br>";
+    public function listarContatos() {
+        foreach ($this->contatinhos as $contatinho) {
+            echo "Nome: " . $contatinho->getNome() . ", Número: " . $contatinho->getNumero() . "<br>";
         }
     }
 
-    public function listarMensagem(){
-        foreach ($this->mensagem as $me) {
-            echo $me->getConteudo()."<br>";
+    public function listarMensagem() {
+        foreach ($this->mensagens as $mensagem) {
+            echo "ID: " . $mensagem->getId() . ", Tipo: " . $mensagem->getTipo() . ", Conteúdo: " . $mensagem->getConteudo() . "<br>";
         }
     }
 }
