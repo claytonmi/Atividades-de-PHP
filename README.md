@@ -7,7 +7,8 @@ Cada pasta contém um projeto individual que foca em um conceito específico de 
 - Herança: Demonstração de como as classes podem herdar propriedades e métodos de outras classes.
 - Composição: Exemplos de como objetos podem ser compostos por outros objetos para formar estruturas mais complexas.
 - Associação: Demonstração de associação entre classes, mostrando como objetos podem interagir uns com os outros.
-Propósito
+
+### Propósito
 Estes projetos são concebidos como exemplos educativos e, como tal, são relativamente simples. Eles fornecem uma base sólida para entender os conceitos-chave de PHP, mas podem ser expandidos e melhorados de várias maneiras.
 
 ### Contribuindo
