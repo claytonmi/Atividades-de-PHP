@@ -1,4 +1,4 @@
-# Projetos de Exemplos em PHP para Estudo
+# 🟣 Projetos de Exemplos em PHP para Estudo
 Bem-vindo(a) aos projetos de exemplos em PHP para estudos! Nesta coleção de pastas, você encontrará uma variedade de projetos simples que demonstram conceitos fundamentais e avançados de programação em PHP. Estes projetos são destinados a serem utilizados como material educativo e de referência para quem está aprendendo ou se aprimorando em PHP.
 
 ### Sobre os Projetos
